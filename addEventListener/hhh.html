@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addEventListener</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- <script src="app.js"></script> -->
+    <style>
+        .hide {opacity: 0;transition: opacity 0.3s, visibility 0.3s;}
+        .reveal {opacity: 1; transition: opacity 2s, visibility 2s;}
+    </style>
+</head>
+
+<body>
+
+    <main class="container mx-auto h-full items-center">
+      <!--BOTAO -->
+      <div class="flex justify-center mt-20">
+        <div data-aos="fade-down" class="max-w-md text-white bg-indigo-500 rounded-2xl hover:drop-shadow-lg hover:bg-purple-400 hover:animate-bounce cursor-pointer ">
+          <button id="button" class="p-4 font-extrabold text-2xl " >
+            Click me!
+          </button>
+        </div>
+      </div>
+      <!--TEXTO -->
+      <div class="flex justify-center mt-20">
+        <div class="hide font-extrabold bg-white rounded-2xl text-4xl drop-shadow-2xl p-8" id="message">
+          Uau, I showed up when you press "Click me"
+        </div>
+      </div>
+      <!--BOTAO2 -->
+      <div class="flex justify-center mt-20">
+        <div class="opacity-0 hover:opacity-100 e max-w-md text-white bg-indigo-500 rounded-2xl hover:drop-shadow-lg hover:bg-purple-400 cursor-pointer">
+          <button id="button2" class="p-8 font-extrabold text-4xl" >
+            Well done,
+            click me again!
+          </button>
+        </div>
+      </div>
+       <!--TEXTO2 -->
+       <div class="flex justify-center mt-20">
+        <div class="hidden font-extrabold bg-white rounded-2xl text-4xl drop-shadow-2xl p-8" id="message2">
+          Uau, you won !
+        </div>
+      </div>
+         <!--BOTAO3 reload page on click-->
+         <div class="flex justify-center mt-20 pt-36">
+          <div class="max-w-sm text-white bg-indigo-500 rounded-2xl hover:drop-shadow-lg hover:bg-purple-400 cursor-pointer">
+            <button onClick="document.location.reload(true)" type="button" value="Reload Page" id="button3" class="p-3 font-bold text-xs" >
+              Restart
+            </button>
+          </div>
+        </div>
+    </main>
+
+</body>
+
+
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+
+  let button = document.querySelector("#button");
+  let msg = document.querySelector("#message");
+  
+  button.addEventListener("click", () => {
+    msg.classList.toggle("reveal");
+  });
+  
+  AOS.init({
+    duration: 1200
+  });
+
+  let button2 = document.querySelector("#button2");
+  let msg2 = document.querySelector("#message2");
+  let button3 = document.querySelector("#button3");
+
+  button2.addEventListener("click", () => {
+    msg2.classList.remove("hidden"); 
+    //msg2.classList.toogle("transgorm nao sei que");
+
+  });
+
+  button3.addEventListener("click", () => {
+  //  console.log("hello");
+      
+  });
+
+</script>
+</html>
